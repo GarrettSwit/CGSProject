@@ -49,29 +49,29 @@ void UDoorInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 				if (GEngine) {
 					GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Yellow, TEXT("Began Rotation!"));
 				}
-				while (!HasCaluclatedVector) {
-					//const float DotProduct =  FVector::DotProduct(PlayerPawn->GetActorForwardVector(), GetOwner()->GetActorLocation());
-					//float DegreesOutput = FMath::RadiansToDegrees(DotProduct);
+				if (!HasCaluclatedVector) {
+					//const float DotProduct =  FVector::DotProduct(GetOwner(), (GetOwner()->GetActorLocation())); //fvetcor door to player //this is player pawn Plyer pwn get actor location - get woner get actor location
+					//float DegreesOutput = FMath::RadiansToDegrees(DotProduct); has to be a direction
 					//FString TheFloatStr = FString::SanitizeFloat(DegreesOutput); //just for printing dot prodcut
 					//if (GEngine) {
 					//	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, *TheFloatStr);
 					//}
-					FVector playerForward = PlayerPawn->GetActorForwardVector();
+					FVector doorForward = GetOwner()->GetActorLocation();
 					FVector doorPos = GetOwner()->GetActorLocation();
-					FVector toDoor = (PlayerPawn->GetActorLocation() - doorPos).GetSafeNormal(); //this doestn resolve it 
-					float angleToDoor = FVector::DotProduct(playerForward, toDoor);
+					FVector toPlayer = (PlayerPawn->GetActorLocation() - doorPos).GetSafeNormal(); 
+					float angleToDoor = FVector::DotProduct(doorForward, toPlayer);
 
 					if (angleToDoor > 0.0f) {
 						if (GEngine) {
-							GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Yellow, TEXT("Same Direction"));
+							GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Yellow, TEXT("Postive"));
 						}
 						//same direction
 						FinalRotation += FRotator(0.0f, 50.0f, 0.0f);
 						HasCaluclatedVector = true;
 					}
-					else if (angleToDoor < 0.0f) {
+					else  {
 						if (GEngine) {
-							GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("OppositeDirection"));
+							GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Negative"));
 						}
 						//opposite direction
 						FinalRotation += FRotator(0.0f, -50.0f, 0.0f);
