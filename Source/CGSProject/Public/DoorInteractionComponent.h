@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
+//#include "Math/Vector.h"
 #include "Math/UnrealMathUtility.h"
 #include "GameFramework/Actor.h"
 #include "CoreMinimal.h"
@@ -36,12 +37,17 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 		ATriggerBox* TriggerBox;
+
 	UPROPERTY(EditAnywhere)
 	FRuntimeFloatCurve OpenCurve;
+
+	bool HasCaluclatedVector = false;
+	
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	 void BeginOverLap(UPrimitiveComponent* OverLappedComponent);
 
 		
 };
