@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
-//#include "Math/Vector.h"
+#include "Math/Vector.h"
 #include "Math/UnrealMathUtility.h"
 #include "GameFramework/Actor.h"
 #include "CoreMinimal.h"
@@ -34,6 +34,7 @@ protected:
 	UPROPERTY(EditAnywhere)
 		float TimeToRotate = 0;
 	float CurrentRotationTime = 0;
+	float CurrentReturnTime = 0;
 
 	UPROPERTY(EditAnywhere)
 		ATriggerBox* TriggerBox;
@@ -41,7 +42,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	FRuntimeFloatCurve OpenCurve;
 
-	bool HasCaluclatedVector = false;
+	bool HasCaluclatedVector;
+	
 	
 
 public:	
