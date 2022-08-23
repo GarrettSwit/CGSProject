@@ -42,6 +42,10 @@ protected:
 	UPROPERTY(EditAnywhere)
 	FRuntimeFloatCurve OpenCurve;
 
+	UPROPERTY(EditAnywhere)
+		bool needbutton;
+	
+
 	bool HasCaluclatedVector;
 	
 	
@@ -49,7 +53,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	 void BeginOverLap(UPrimitiveComponent* OverLappedComponent);
-
-		
+	void OpenTheDoor(float DeltaTime);
+	UPROPERTY(EditAnywhere)
+		bool buttonPressed;
 };
