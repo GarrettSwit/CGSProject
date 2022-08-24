@@ -41,14 +41,16 @@ void UDoorInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if (needbutton) {
-		if (buttonPressed) {
-			OpenTheDoor(DeltaTime);
-		}
-	}
-	if (!needbutton) {
-		OpenTheDoor(DeltaTime);
-	}
+	//if (needbutton) {
+	//	if (buttonPressed) {
+	//		OpenTheDoor(DeltaTime);
+	//	}
+	//}
+	//if (!needbutton) {
+	//	OpenTheDoor(DeltaTime);
+	//}
+
+
 	
 	
 }

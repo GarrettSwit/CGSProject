@@ -3,6 +3,8 @@
 
 #include "ButtonToUnlockDoor.h"
 #include "Engine/TriggerBox.h"
+#include "CGSCharacter.h"
+#include "DoorInteractionComponent.h"
 
 // Sets default values for this component's properties
 UButtonToUnlockDoor::UButtonToUnlockDoor()
@@ -30,16 +32,24 @@ void UButtonToUnlockDoor::TickComponent(float DeltaTime, ELevelTick TickType, FA
 {
 	
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	APawn* PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+	ACGSCharacter* PlayerPawn = Cast<ACGSCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	if (PlayerPawn && triggerBox->IsOverlappingActor(PlayerPawn)) {
 		// ...
 		if (GEngine) {
 				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, "You Overlapped the box!");
 			}
 		if (door != nullptr) {
-			//door->buttonPressed = true;
+			PlayerPawn->Button = this;
+			//OpenTheDoor();
+
 		}
 	}
 }
 
+void UButtonToUnlockDoor::OpenTheDoor() {
+	if (door) {
+		door->OpenTheDoor();
+	}
+
+}
 

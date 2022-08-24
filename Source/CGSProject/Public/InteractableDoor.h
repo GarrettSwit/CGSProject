@@ -17,9 +17,10 @@ class CGSPROJECT_API AInteractableDoor : public AStaticMeshActor
 public:
 	AInteractableDoor();
 
+	void OpenTheDoor();
 protected:
 	UPROPERTY(EditAnywhere, NoClear);
-	UDoorInteractionComponent* DoorInteractionComponent;
+	UDoorInteractionComponent* DoorInteractionComponent = nullptr;
 
 	
 };

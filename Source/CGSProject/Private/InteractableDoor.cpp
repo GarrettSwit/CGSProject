@@ -8,3 +8,10 @@ AInteractableDoor::AInteractableDoor() {
 
 	DoorInteractionComponent = CreateDefaultSubobject<UDoorInteractionComponent>(TEXT("DoorInteractionComponent"));
 }
+
+void AInteractableDoor::OpenTheDoor()
+{
+	if (DoorInteractionComponent) {
+		DoorInteractionComponent->OpenTheDoor(100.0f);
+	}
+}

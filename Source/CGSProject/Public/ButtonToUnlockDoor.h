@@ -26,11 +26,11 @@ protected:
 	ATriggerBox* triggerBox;
 
 	UPROPERTY(EditAnywhere)
-	AInteractableDoor* door;
+	AInteractableDoor* door = nullptr;
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
+	void OpenTheDoor();
 		
 };
