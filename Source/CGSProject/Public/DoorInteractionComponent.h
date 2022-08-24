@@ -2,6 +2,7 @@
 
 #pragma once
 #include "Math/Vector.h"
+#include "InteractableDoor.h"
 #include "Math/UnrealMathUtility.h"
 #include "GameFramework/Actor.h"
 #include "CoreMinimal.h"
@@ -43,8 +44,10 @@ protected:
 	FRuntimeFloatCurve OpenCurve;
 
 	UPROPERTY(EditAnywhere)
+		bool buttonPressed;
+	UPROPERTY(EditAnywhere)
 		bool needbutton;
-	
+
 
 	bool HasCaluclatedVector;
 	
@@ -54,6 +57,8 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	void OpenTheDoor(float DeltaTime);
-	UPROPERTY(EditAnywhere)
-		bool buttonPressed;
+
+
+	void PressTheButton();
+	bool NeedButtonPressed();
 };

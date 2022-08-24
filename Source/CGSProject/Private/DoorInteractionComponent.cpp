@@ -2,6 +2,7 @@
 
 
 #include "DoorInteractionComponent.h"
+#include "InteractableDoor.h"
 #include "Engine/TriggerBox.h"
 #include "Engine/World.h"
 
@@ -101,3 +102,15 @@ void UDoorInteractionComponent::OpenTheDoor(float DeltaTime) {
 		}
 	}
 }
+
+void UDoorInteractionComponent::PressTheButton()
+{
+	buttonPressed = true;
+}
+
+bool UDoorInteractionComponent::NeedButtonPressed()
+{
+	return needbutton;
+}
+
+

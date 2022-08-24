@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "DoorInteractionComponent.h"
+#include "InteractableDoor.h"
 #include "Components/ActorComponent.h"
 #include "ButtonToUnlockDoor.generated.h"
 
@@ -25,7 +26,8 @@ protected:
 	ATriggerBox* triggerBox;
 
 	UPROPERTY(EditAnywhere)
-	UDoorInteractionComponent* door;
+	AInteractableDoor* door;
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;

@@ -36,7 +36,10 @@ void UButtonToUnlockDoor::TickComponent(float DeltaTime, ELevelTick TickType, FA
 		if (GEngine) {
 				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, "You Overlapped the box!");
 			}
-		door->buttonPressed = true;
+		if (door != nullptr) {
+			//door->buttonPressed = true;
+		}
 	}
 }
+
 
