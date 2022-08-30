@@ -12,6 +12,6 @@ AInteractableDoor::AInteractableDoor() {
 void AInteractableDoor::OpenTheDoor()
 {
 	if (DoorInteractionComponent) {
-		DoorInteractionComponent->OpenTheDoor(100.0f);
+		DoorInteractionComponent->OpenTheDoor(20.0f);
 	}
 }
